@@ -20,7 +20,6 @@ void Deanery::createGroups(const std::string& filename_groups){
         return;
     }
     while (std::getline(file, line)) {
-        //std::cout << "Do " << std::endl;
         std::istringstream lineStream(line);
         lineStream >> title >> spec;
         Group *group = new Group(title, spec);
@@ -57,7 +56,7 @@ void Deanery::addStudents(const std::string& filename_students) {
     }
     file.close();
 }
-void Deanery::add5MarkToAll() {
+void Deanery::add5MarkToAll() { // add five random marks from 1 to 10
     int mark;
     srand (time (nullptr));
     for (Group* group: groups) {
@@ -70,12 +69,13 @@ void Deanery::add5MarkToAll() {
     }
     saveData();
 }
-void Deanery::getStatistics() const { //print here
+void Deanery::getStatistics() const { // and statistic print here
     std::cout << "Group Statistics:" << std::endl;
     for (Group* group : groups) {
         std::cout << "Group: " << group->getTitle() << std::endl;
         std::cout << "Average Mark: " << group->getAverageMarkForGroup() << std::endl;
     }
+    std::cout << std::endl;
 }
 
 void Deanery::moveStudent(int id, std::string targetGroup_title) {
@@ -123,7 +123,6 @@ void Deanery::saveData() const {
     }
     file_groups.close();
     file_students.close();
-    
 }
 
 void Deanery::dismissStudents(){
@@ -140,7 +139,6 @@ void Deanery::dismissStudents(){
         }
     }
     saveData();
-
 }
 
 void Deanery::printData () const{
@@ -154,12 +152,9 @@ void Deanery::printData () const{
         else
             std::cout << "No head" << std::endl;
         std::cout << "Students:" << std::endl;
-        //std::cout << group->getStudents() << std::endl;
         for (Student* student : group->getStudents()) {
-            //std::cout << student << std::endl;
             std::cout << "ID: " << student->getID() << " FIO: " << student->getFIO() << " Marks: " << student->getMarks() << std::endl;
         }
-        std::cout << std::endl;
     }
-    std::cout << "That's all!" << std::endl;
+    std::cout << std::endl;
 }

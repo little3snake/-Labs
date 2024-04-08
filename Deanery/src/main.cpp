@@ -19,16 +19,18 @@ int main() {
     Group* our_group = course_1.getGroups()[4];
     our_group->chooseHead();
     course_1.printData();
-    our_group->chooseHead(3); // chose head with id
+    our_group->chooseHead(id); // chose head with id
     course_1.printData(); // chose random head
     // with students
     Student* you;
     id=14;
     std::string fio = "Randin Arseniy Andreevich";
-    std::cout << "all" << std::endl;
     you = our_group->getStudent(id); // get fio
     std::cout << "Chosen student with id " << id << " is " << you->getFIO() << std::endl;
     you = our_group->getStudent(fio); // get id
     std::cout << fio << " has id: " << you->getID() << std::endl;
+    // 2 time prog can't run because in file groups.txt will add information
+    // about heads and creating classes won't work with this information
+    //you should replace to origin files in ...files\origin...
     return 0;
 }
