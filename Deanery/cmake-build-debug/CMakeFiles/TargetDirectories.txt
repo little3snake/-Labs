@@ -1,0 +1,3 @@
+C:/Users/user/Desktop/СИ/-Labs/Deanery/cmake-build-debug/CMakeFiles/DeaneryDemo.dir
+C:/Users/user/Desktop/СИ/-Labs/Deanery/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/user/Desktop/СИ/-Labs/Deanery/cmake-build-debug/CMakeFiles/rebuild_cache.dir

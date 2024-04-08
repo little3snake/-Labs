@@ -1,0 +1,11 @@
+# ninja log v5
+17	453	7343048650238796	CMakeFiles/DeaneryDemo.dir/src/Student.cpp.obj	e4bf1d16b364293d
+3	677	7343048652489117	CMakeFiles/DeaneryDemo.dir/src/Deanery.cpp.obj	3a37aae912bdfcee
+10	547	7343048651189830	CMakeFiles/DeaneryDemo.dir/src/Group.cpp.obj	7fc8a2e506f314d7
+678	806	7343048653724713	DeaneryDemo.exe	8c5076d136a1ec3c
+14	478	7343048650513694	CMakeFiles/DeaneryDemo.dir/src/main.cpp.obj	969f2ee1f185568
+22	1165	7343078535922768	CMakeFiles/DeaneryDemo.dir/src/Student.cpp.obj	7940dbb0a18c5a60
+28	1206	7343078536349658	CMakeFiles/DeaneryDemo.dir/src/main.cpp.obj	9a8c6288aec28344
+6	1280	7343078537067755	CMakeFiles/DeaneryDemo.dir/src/Group.cpp.obj	345f3479532706e0
+15	1527	7343078539574951	CMakeFiles/DeaneryDemo.dir/src/Deanery.cpp.obj	bc93b951f7efddb5
+1527	1750	7343078541740183	DeaneryDemo.exe	8c5076d136a1ec3c
