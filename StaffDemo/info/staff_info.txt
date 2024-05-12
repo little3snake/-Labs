@@ -1,0 +1,18 @@
+0 Burtsev Roman Andreevich programmer 800 15 1
+1 Dumarevskaya Tatyana Nikolaevna project_manager 500 12 2
+2 Dolgopolov Aleksey Gennadyevich team_leader 500 17 2
+3 Gerasimov Aleksey Aleksandrovich programmer 800 15 2
+4 Grachev Aleksandr Evgenyevich tester 900 7 2
+5 Boryaev Sergey Sergeevich team_leader 600 3 1
+6 Balayan Roman Karenovich tester 500 12 0
+7 Emshanov Pavel Andreevich senior_manager 1000 20 3
+8 Igumnova Natalya Dmitrievna programmer 700 8 3
+9 Klimov Aleksey Sergeevich tester 800 7 3
+10 Lukicheva Polina Aleksandrovna programmer 800 8 3
+11 Lupekhina Lyudmila Evgenyevna team_leader 700 10 3
+12 Murzinov Mikhail Denisovich project_manager 700 9 3 1
+13 Bakurskiy Andrey Sergeevich programmer 700 10 0
+14 Votinova Kseniya Konstantinovna project_manager 500 15 1
+15 Bekina Svetlana Sergeevna project_manager 700 11 0
+16 Vargin Dmitriy Aleksandrovich tester 600 7 1
+
