@@ -1,0 +1,8 @@
+Описание вводных данных:
+programmer:      id fio position salary    №project    (закончил срою работу досрочно или нет определяется рандомно)
+project_manager: id fio position №project
+team_leader:     id fio position salary    №project
+tester:          id fio position salary    №project    (количество найденных ошибок определяется рандомно)
+senior_manager:  id fio position №projects
+driver:          id fio position salary    night_hours
+cleaner:         id fio position salary 
