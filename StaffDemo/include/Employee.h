@@ -31,11 +31,9 @@ protected:
                                            "tester"};
    int payment{};
  public:
-   Employee(int id, std::string  fio, int work_time, Positions position);
+   Employee(int id, std::string  fio, Positions position);
    ~Employee();
-   //                                                              set work time for what?
    void print_info() ;
-   //void changeTime();
    void setWorkTime();
    virtual int calc_salary() = 0;
 };
@@ -47,8 +45,6 @@ private:
    int number_of_employees;
 public:
    Project(int id, int budget, int number_of_employees);
-   //Project(Project&& other) noexcept ;
-   //Project(Project& other);
    Project();
    ~Project();
    int get_num_of_employees() const;

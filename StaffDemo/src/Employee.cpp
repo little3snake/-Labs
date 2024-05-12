@@ -1,26 +1,19 @@
 #include <iostream>
 #include <iomanip>
 #include <cstdlib>
-#include <ctime>
 #include <utility>
 
 #include "Employee.h"
 
-Employee::Employee(const int id, std::string  fio, int work_time, Positions position)
-        : id (id), fio (std::move(fio)), work_time (work_time), position (position) {}
+Employee::Employee(const int id, std::string  fio, Positions position)
+        : id (id), fio (std::move(fio)), position (position) {}
 
 Employee::~Employee() = default;
 
-    //virtual int calc_salary() = 0;
-    //virtual void print_info() = 0;
-//void Employee::changeTime() {
-//    srand(time(nullptr));
-//}
-
 void Employee::setWorkTime() {
-    //srand(time(nullptr));
-    work_time = rand() % 501 + 400;
+    work_time = rand() % 601 + 400;
 }
+
 void Employee::print_info(){
     std::string position_str;
     if (position == programmer) {
@@ -56,19 +49,9 @@ void Employee::print_info(){
 Project::Project(int id, int budget, int number_of_employees)
     : id (id), budget (budget), number_of_employees (number_of_employees) {}
 
-//Project::Project(Project&& other) noexcept
-//    : id(other.id), budget(std::move(other.budget)), number_of_employees(std::move(other.number_of_employees)) {}
-
-//Project::Project(Project& other)
-//        : id(other.id), budget(other.budget), number_of_employees(other.number_of_employees) {}
-//Project::Project() {}
-
 Project::Project() : id(-1), budget(0), number_of_employees(0){}
 
 Project::~Project()  = default;
-
-//Project::Project(const Project& other)
-//    : id(other.id), budget(other.budget), number_of_employees(other.number_of_employees) {}
 
 int Project::get_num_of_employees() const {
     return number_of_employees;

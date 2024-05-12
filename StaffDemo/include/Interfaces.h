@@ -1,6 +1,7 @@
 // Copyright 09.05.24 SubbotinaTanya
 #ifndef INTERFACES_H
 #define INTERFACES_H
+
 class Heading {
  public:
     virtual ~Heading() = default;
@@ -20,5 +21,4 @@ class Project_Budget {
     virtual int calc_budget_part() = 0;
     virtual int calc_pro_additions(int bonus) = 0;
 };
-
 #endif  // INTERFACES_H

@@ -13,7 +13,6 @@ add_executable(StaffDemo
         include/Manager.h
         include/Personal.h
         info/projects_info.txt
-        info/staff.txt
         info/staff_info.txt
         src/Employee.cpp
         src/Engineer.cpp

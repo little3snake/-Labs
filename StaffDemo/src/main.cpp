@@ -14,8 +14,6 @@ using namespace std;
 class Factory;
 int main() {
     // создание штата сотрудников на основе файла
-    //vector <Project*> proj = Factory::makeProjects ("../bd/project_info.txt");
-    //Factory staff_help;
     srand(time(nullptr));
     vector<Employee*> staff = Factory::makeStaff("../info/staff_info.txt");
     // присвоение отработанного времени
@@ -24,9 +22,7 @@ int main() {
     }
     // расчет зарплаты
     for(Employee* emp: staff) {
-        //cout << "calc" << " ";
         emp -> calc_salary();
-        //cout << "calc_end" << " ";
     }
     // вывод данных о зарплате
     cout

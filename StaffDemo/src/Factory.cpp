@@ -9,8 +9,7 @@
 std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
     std::ifstream file(filename); // file is stream
     std::string line;
-    int id, worktime, salary, project_id, project_1_id;
-    //std::vector <Project*> proj = Factory::makeProjects (".../info/projects_info.txt");
+    int id, salary, worktime, project_id, project_1_id, nightHours;
     Positions position;
     std::string fio , f , i , o , position_str;
     Project* project;
@@ -29,77 +28,64 @@ std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
             Employee* employee;
             if (position_str == "programmer") {
                 position = programmer;
-                lineStream >> worktime >> salary >> project_id;
+                lineStream >> salary >> project_id;
                 for (Project* project_for: proj) {
                     if (project_for->get_id() == project_id)
                         project = project_for;
                 }
-                employee = new Programmer(id, fio, worktime, salary, position, project);
+                employee = new Programmer(id, fio, salary, position, project);
             } else if (position_str == "team_leader") {
-
                 position = team_leader;
-                lineStream >> worktime >> salary >> project_id;
+                lineStream >> salary >> project_id;
                 for (Project* project_for: proj) {
                     if (project_for->get_id() == project_id)
                         project = project_for;
                 }
-                employee = new TeamLeader(id, fio, worktime, salary, position, project);
+                employee = new TeamLeader(id, fio, salary, position, project);
             } else if (position_str == "project_manager") {
                 position = project_manager;
-                lineStream >> worktime >> salary;
                 while (lineStream >> project_1_id) {
                     projects_this_id.push_back(project_1_id);
                 }
                 for (int project_id_for: projects_this_id) {
-                    //std::cout << "ProjM " << project_id_for << " " << std::endl;
                     for (Project* project_for: proj) {
                         if (project_for->get_id() == project_id_for)
                             projects_this.push_back(project_for);
                     }
                 }
-                employee = new ProjectManager(id, fio, worktime, position, projects_this);
+                employee = new ProjectManager(id, fio, position, projects_this);
                 projects_this_id.clear();
                 projects_this.clear();
-                //lineStream >> worktime >> project_id;
-                //for (Project* project_for: proj) {
-                //    if (project_for->get_id() == project_id)
-                //        std::cout << "ProjM " << project_id << " " << std::endl;
-                //        projects_this.push_back(project_for);
-                //}
-                //employee = new ProjectManager(id, fio, worktime, position, projects_this);
-                //projects_this.clear();
             } else if (position_str == "senior_manager") {
                 position = senior_manager;
-                lineStream >> worktime >> salary;
                 while (lineStream >> project_1_id) {
                     projects_this_id.push_back(project_1_id);
                 }
                 for (int project_id_for: projects_this_id) {
-                    //std::cout << "SenM " << project_id_for << " " << std::endl;
                     for (Project* project_for: proj) {
                         if (project_for->get_id() == project_id_for)
                             projects_this.push_back(project_for);
                     }
                 }
-                employee = new SeniorManager(id, fio, worktime, position, projects_this);
+                employee = new SeniorManager(id, fio, position, projects_this);
                 projects_this_id.clear();
                 projects_this.clear();
             } else if (position_str == "cleaner") {
                 position = cleaner;
-                lineStream >> worktime >> salary;
-                employee = new Cleaner(id, fio, worktime, salary, position);
+                lineStream >>  salary;
+                employee = new Cleaner(id, fio, salary, position);
             } else if (position_str == "driver") {
                 position = driver;
-                lineStream >> worktime >> salary;
-                employee = new Driver(id, fio, worktime, salary, position);
+                lineStream >> worktime >> salary >> nightHours;
+                employee = new Driver(id, fio, salary, position, nightHours);
             } else if (position_str == "tester") {
                 position = tester;
-                lineStream >> worktime >> salary >> project_id;
+                lineStream >> salary >> project_id;
                 for (Project* project_for: proj) {
                     if (project_for->get_id() == project_id)
                         project = project_for;
                 }
-                employee = new Tester(id, fio, worktime, salary, position, project);
+                employee = new Tester(id, fio, salary, position, project);
             }
             result.push_back(employee);
         }
@@ -125,7 +111,6 @@ std::vector<Project*> Factory::makeProjects (const std::string& filename) {
     }
     file.close();
     return projects;
-
 }
 
     
