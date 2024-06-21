@@ -5,10 +5,9 @@
 
 int main() {
     Deanery course_1;
-    int id=3;
     course_1.createGroups("../bd/groups.txt"); // create groups from file
     course_1.addStudents("../bd/students.txt"); // create students from file
-    course_1.add5MarkToAll(); //add marks to all students
+    course_1.add5MarkToAll(); //add marks to all students (random)
     course_1.printData ();
     course_1.getStatistics(); // get average mark for groups
     course_1.moveStudent(15, "23CST6"); // moving demonstration
@@ -16,11 +15,12 @@ int main() {
     course_1.dismissStudents();
     course_1.printData();
     // with groups
-    Group* our_group = course_1.getGroups()[4];
-    our_group->chooseHead();
+    int id=3; // id for head in chosen group
+    Group* our_group = course_1.getGroups()[4]; // for group 23CST5
+    our_group->chooseHead(); // chose random head
     course_1.printData();
     our_group->chooseHead(id); // chose head with id
-    course_1.printData(); // chose random head
+    course_1.printData();
     // with students
     Student* you;
     id=14;

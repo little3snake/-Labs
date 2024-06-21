@@ -1,7 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include <fstream>
-#include <string> 
+#include <string>
 #include <cstdlib> // For rand() and srand()
 #include <ctime> // For time()
 #include "Deanery.h"
@@ -54,8 +54,10 @@ void Deanery::addStudents(const std::string& filename_students) {
             student->addMark(mark);
         }
     }
+    marks.clear();
     file.close();
 }
+
 void Deanery::add5MarkToAll() { // add five random marks from 1 to 10
     int mark;
     srand (time (nullptr));
@@ -69,6 +71,7 @@ void Deanery::add5MarkToAll() { // add five random marks from 1 to 10
     }
     saveData();
 }
+
 void Deanery::getStatistics() const { // and statistic print here
     std::cout << "Group Statistics:" << std::endl;
     for (Group* group : groups) {
@@ -82,28 +85,28 @@ void Deanery::moveStudent(int id, std::string targetGroup_title) {
     Student* student;
     Group* sourceGroup;
     Group* targetGroup;
-    for (Group* group_for : groups) {
+    for (Group* group_for : groups) { // find group with the same name
         if (group_for->getTitle() == targetGroup_title ) {
-             targetGroup = group_for;
+            targetGroup = group_for;
         }
     }
     for (Group* group_for : groups) {
         for (Student* student_for : group_for->getStudents()) {
-            if (student_for->getID() == id) { //  check  if mark less than 4
+            if (student_for->getID() == id) { // find student with the same id
                 student = student_for;
                 sourceGroup = group_for;
                 break;
             }
         }
     }
-    int student_id = student->getID();
+    int student_id = student->getID(); // or student_id = id
     sourceGroup->removeStudent(student_id);
     student->addToGroup(targetGroup);
     saveData();
 }
 
 void Deanery::saveData() const {
-    std::ofstream file_groups;  
+    std::ofstream file_groups;
     std::ofstream file_students;
     file_groups.open("../bd/groups.txt"); // open files
     file_students.open("../bd/students.txt");
@@ -125,8 +128,8 @@ void Deanery::saveData() const {
     file_students.close();
 }
 
-void Deanery::dismissStudents(){
-    for (Group* group : groups) {
+void Deanery::dismissStudents() {
+    for (Group* group : groups) { // delete students in each group
         std::vector<Student*> students_for_dismiss;
         for (Student* student : group->getStudents()) {
             if (student->getAverageMark() < 4.0f) { //  check  if mark less than 4
@@ -137,11 +140,12 @@ void Deanery::dismissStudents(){
             group->removeStudent(student->getID());
             delete student; // clear memory
         }
+        students_for_dismiss.clear(); // clear memory
     }
     saveData();
 }
 
-void Deanery::printData () const{
+void Deanery::printData () const {
     saveData(); // only for chooseHead
     std::cout << "Deanery Data:" << std::endl;
     for (Group* group : groups) {

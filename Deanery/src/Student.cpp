@@ -1,6 +1,5 @@
 #include "Student.h"
 #include "Group.h"
-//#include "Deanery.h"
 
 Student::Student (const int id, const std::string& fio)
     : id (id), fio (fio), group (nullptr) {}
@@ -31,7 +30,6 @@ std::string Student::getMarks () const {
     }
     return marks_str;
 }
-
 
 void Student::addToGroup (Group* group){
     this->group = group;

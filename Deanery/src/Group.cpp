@@ -37,6 +37,7 @@ void Group::chooseHead (int id) {
         }
     }
 }
+
 void Group::chooseHead () { // choose random
     int chosen_id;
     srand (time (nullptr));
@@ -52,8 +53,6 @@ float Group::getAverageMarkForGroup () const {
     int summ = 0;
     if (students.empty()) // no elements in marks array
         return 0;
-
-
     for (Student* student : students) {
         summ += student->getAverageMark();
     }
@@ -63,7 +62,6 @@ float Group::getAverageMarkForGroup () const {
 Student* Group::getStudent (const std::string& fio) const {
     for (Student* student : students) {
         if (student->getFIO() == fio)
-            //std::cout << fio << " has id: " << student->getID() << std::endl;
             return student;
     }
     return nullptr;
@@ -72,11 +70,11 @@ Student* Group::getStudent (const std::string& fio) const {
 Student* Group::getStudent (int id) const {
     for (Student* student : students) {
         if (student->getID() == id)
-            //std::cout << "Student with id: " << id << " is " << student->getFIO() << std::endl;
             return student;
     }
     return nullptr;
 }
+
 void Group::removeStudent (int id) {
     for (auto it = students.begin(); it != students.end(); ++it) {
         if ((*it)->getID() == id) {
