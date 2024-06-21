@@ -10,9 +10,8 @@ int Personal::calc_base_salary(int salary_calc, int work_time)  {
 Driver::Driver(const int id, const std::string& fio, int salary, Positions position, int night_hours)
     : Personal (id, fio, salary, position), night_hours (night_hours) {}
 
-int Driver::calc_bonus_salary(int bonus) { // int night hours
-    return bonus * night_hours; // 15  - is night hours
-    //                                               question how to calculate bonus salary (where these hours)
+int Driver::calc_bonus_salary(int bonus) { //night hours
+    return bonus * night_hours;
 }
 
 int Driver::calc_salary() {

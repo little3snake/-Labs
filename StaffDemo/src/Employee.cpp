@@ -16,7 +16,7 @@ void Employee::setWorkTime() {
 
 void Employee::print_info(){
     std::string position_str;
-    if (position == programmer) {
+    if (position == programmer) { // translate from position to string
         position_str = "programmer";
     } else if (position == team_leader) {
         position_str = "team_leader";
@@ -31,6 +31,7 @@ void Employee::print_info(){
     } else if (position == tester) {
         position_str = "tester";
     }
+    // create a table
     std::cout
         << std::left
         << std::setw(40)

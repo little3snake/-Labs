@@ -13,12 +13,11 @@ std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
     Positions position;
     std::string fio , f , i , o , position_str;
     Project* project;
-    std::vector <Project*> projects_this;
-    std::vector <int> projects_this_id;
+    std::vector <Project*> projects_this; //for project_manager and senior_manager
+    std::vector <int> projects_this_id; // for project_manager and senior manager
     std::vector <Employee*> result;
     if (!file.is_open()) {
         std::cerr << "Error: couldn't open file " << filename << std::endl;
-        std::vector <Project*> proj = Factory::makeProjects ("../info/projects_info.txt");
     } else {
         std::vector <Project*> proj = Factory::makeProjects ("../info/projects_info.txt");
         while (std::getline(file, line)) {
@@ -28,6 +27,8 @@ std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
             Employee* employee;
             if (position_str == "programmer") {
                 position = programmer;
+                //т к в файле не было указано как писать, закончил программист работу досрочно или нет
+                //то это будет определяться рандомно
                 lineStream >> salary >> project_id;
                 for (Project* project_for: proj) {
                     if (project_for->get_id() == project_id)
@@ -47,7 +48,7 @@ std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
                 while (lineStream >> project_1_id) {
                     projects_this_id.push_back(project_1_id);
                 }
-                for (int project_id_for: projects_this_id) {
+                for (int project_id_for: projects_this_id) { // from all int to project
                     for (Project* project_for: proj) {
                         if (project_for->get_id() == project_id_for)
                             projects_this.push_back(project_for);
@@ -80,6 +81,8 @@ std::vector<Employee*> Factory::makeStaff (const std::string& filename) {
                 employee = new Driver(id, fio, salary, position, nightHours);
             } else if (position_str == "tester") {
                 position = tester;
+                //т к в файле не было указано как писать количество найденных ошибок,
+                // то они будут добавляться рандомно
                 lineStream >> salary >> project_id;
                 for (Project* project_for: proj) {
                     if (project_for->get_id() == project_id)

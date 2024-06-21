@@ -16,7 +16,7 @@ int Engineer::calc_bonus_salary(int bonus) {
 Programmer::Programmer(const int id, const std::string& fio, int salary, Positions position, Project* project)
     : Engineer (id, fio, salary, position, project) {}
 
-int Programmer::calc_pro_additions(int bonus) { //         programmer finished work early          random
+int Programmer::calc_pro_additions(int bonus) { // programmer finished work early -- random
     int is_finished_early;
     int pro_add = 0;
     is_finished_early = rand() % 2; // 0 or 1 like true or false
@@ -33,7 +33,7 @@ int Programmer::calc_salary () {
 Tester::Tester(const int id, const std::string& fio, int salary, Positions position, Project* project)
     : Engineer(id, fio, salary, position, project) {}
 
-int Tester::calc_pro_additions(int bonus) {
+int Tester::calc_pro_additions(int bonus) { // tester find ? errors -- random
     int number_of_fixed_errors;
     number_of_fixed_errors = rand() % 201;
     return number_of_fixed_errors * bonus;
